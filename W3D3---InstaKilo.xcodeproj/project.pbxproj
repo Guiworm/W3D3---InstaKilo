@@ -13,6 +13,10 @@
 		A066EFF91DDCBE440000B26D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A066EFF71DDCBE440000B26D /* Main.storyboard */; };
 		A066EFFB1DDCBE440000B26D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A066EFFA1DDCBE440000B26D /* Assets.xcassets */; };
 		A066EFFE1DDCBE440000B26D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A066EFFC1DDCBE440000B26D /* LaunchScreen.storyboard */; };
+		A066F0071DDCC0940000B26D /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A066F0061DDCC0940000B26D /* CustomCollectionViewCell.m */; };
+		A066F00A1DDCC5870000B26D /* PhotoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A066F0091DDCC5870000B26D /* PhotoObject.m */; };
+		A066F0101DDCCD360000B26D /* PhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A066F00F1DDCCD360000B26D /* PhotoManager.m */; };
+		A0EC170E1DDD1D5300F23CE4 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EC170D1DDD1D5300F23CE4 /* HeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,14 @@
 		A066EFFA1DDCBE440000B26D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A066EFFD1DDCBE440000B26D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A066EFFF1DDCBE440000B26D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A066F0051DDCC0940000B26D /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		A066F0061DDCC0940000B26D /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		A066F0081DDCC5870000B26D /* PhotoObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoObject.h; sourceTree = "<group>"; };
+		A066F0091DDCC5870000B26D /* PhotoObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoObject.m; sourceTree = "<group>"; };
+		A066F00E1DDCCD360000B26D /* PhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoManager.h; path = ../PhotoManager.h; sourceTree = "<group>"; };
+		A066F00F1DDCCD360000B26D /* PhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoManager.m; path = ../PhotoManager.m; sourceTree = "<group>"; };
+		A0EC170C1DDD1D5300F23CE4 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		A0EC170D1DDD1D5300F23CE4 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +70,19 @@
 		A066EFED1DDCBE440000B26D /* W3D3---InstaKilo */ = {
 			isa = PBXGroup;
 			children = (
+				A066EFF71DDCBE440000B26D /* Main.storyboard */,
 				A066EFF11DDCBE440000B26D /* AppDelegate.h */,
 				A066EFF21DDCBE440000B26D /* AppDelegate.m */,
 				A066EFF41DDCBE440000B26D /* ViewController.h */,
 				A066EFF51DDCBE440000B26D /* ViewController.m */,
-				A066EFF71DDCBE440000B26D /* Main.storyboard */,
+				A0EC170C1DDD1D5300F23CE4 /* HeaderView.h */,
+				A0EC170D1DDD1D5300F23CE4 /* HeaderView.m */,
+				A066F0051DDCC0940000B26D /* CustomCollectionViewCell.h */,
+				A066F0061DDCC0940000B26D /* CustomCollectionViewCell.m */,
+				A066F00E1DDCCD360000B26D /* PhotoManager.h */,
+				A066F00F1DDCCD360000B26D /* PhotoManager.m */,
+				A066F0081DDCC5870000B26D /* PhotoObject.h */,
+				A066F0091DDCC5870000B26D /* PhotoObject.m */,
 				A066EFFA1DDCBE440000B26D /* Assets.xcassets */,
 				A066EFFC1DDCBE440000B26D /* LaunchScreen.storyboard */,
 				A066EFFF1DDCBE440000B26D /* Info.plist */,
@@ -150,9 +170,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0EC170E1DDD1D5300F23CE4 /* HeaderView.m in Sources */,
 				A066EFF61DDCBE440000B26D /* ViewController.m in Sources */,
+				A066F00A1DDCC5870000B26D /* PhotoObject.m in Sources */,
 				A066EFF31DDCBE440000B26D /* AppDelegate.m in Sources */,
 				A066EFF01DDCBE440000B26D /* main.m in Sources */,
+				A066F0101DDCCD360000B26D /* PhotoManager.m in Sources */,
+				A066F0071DDCC0940000B26D /* CustomCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +331,7 @@
 				A066F0041DDCBE440000B26D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CustomCollectionViewCell.h"
+#import "PhotoManager.h"
+#import "PhotoObject.h"
+#import "HeaderView.h"
 @interface ViewController : UIViewController
 
 
