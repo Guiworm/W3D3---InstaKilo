@@ -12,8 +12,9 @@
 @interface PhotoManager : NSObject
 
 @property NSMutableArray *photoArray;
+@property NSMutableDictionary *categoryDict;
 
--(NSInteger)numberOfItemsInSection:(NSInteger)section;
+-(NSInteger)numberOfItemsInSection:(NSString *)section;
 -(PhotoObject *)photoItemAtIndexPath:(NSIndexPath *)indexPath;
 -(void)splitBySubject:(NSString *)sectionType withArray:(NSMutableArray*)splitArray;
 

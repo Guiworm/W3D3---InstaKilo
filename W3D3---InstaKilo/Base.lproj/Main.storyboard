@@ -55,20 +55,23 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="dFM-uX-LPP" customClass="headerView">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerCell" id="dFM-uX-LPP" customClass="HeaderView">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hse-ZV-RbV">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hse-ZV-RbV">
                                             <rect key="frame" x="166" y="15" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Hse-ZV-RbV" firstAttribute="centerX" secondItem="dFM-uX-LPP" secondAttribute="centerX" id="BsU-df-vXW"/>
+                                        <constraint firstItem="Hse-ZV-RbV" firstAttribute="centerY" secondItem="dFM-uX-LPP" secondAttribute="centerY" id="Ft0-Wp-Duu"/>
+                                    </constraints>
                                     <connections>
-                                        <outlet property="title" destination="Hse-ZV-RbV" id="tiM-2g-TYJ"/>
+                                        <outlet property="title" destination="Hse-ZV-RbV" id="7rt-zw-a0f"/>
                                     </connections>
                                 </collectionReusableView>
                                 <connections>

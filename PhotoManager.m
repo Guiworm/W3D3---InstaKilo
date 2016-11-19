@@ -16,13 +16,14 @@
 	self = [super init];
 	if (self) {
 		self.photoArray = [NSMutableArray new];
+		self.categoryDict = [NSMutableDictionary new];
 	}
 	return self;
 }
 
--(NSInteger)numberOfItemsInSection:(NSInteger)section{
-	NSMutableArray *arrayItem = (NSMutableArray*)self.photoArray[section];
-	return arrayItem.count;
+-(NSInteger)numberOfItemsInSection:(NSString *)section{
+	NSInteger new = [self.categoryDict[section] count];
+	return new;
 }
 
 -(PhotoObject *)photoItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -35,13 +36,34 @@
 	
 	for(PhotoObject *item in splitArray){
 		if([item.subject isEqualToString:sectionType]){
+			//Create a subject Array
+			if([self.categoryDict objectForKey:@"Subject"] == nil){
+				//create new array in dictionary with the section type
+				self.categoryDict[@"Subject"] = [NSMutableArray new];
+			}
 			[newSection addObject:item];
 		}
 		else if([item.location isEqualToString:sectionType]){
+			if([self.categoryDict objectForKey:@"Location"] == nil){
+				//create new array in dictionary with the section type
+				self.categoryDict[@"Location"] = [NSMutableArray new];
+			}
 			[newSection addObject:item];
 		}
 	}
-	[self.photoArray addObject:newSection];
+	//[self.photoArray addObject:newSection];
+	
+	//Check the first object to see if it should be put in a location or subject view
+	PhotoObject *photoObject = newSection[0];
+	
+	//add the array to the section type in the dictionary
+	if([photoObject.subject isEqualToString:sectionType]){
+		[self.categoryDict[@"Subject"] addObject: newSection];
+	}
+	else if([photoObject.location isEqualToString:sectionType]){
+		[self.categoryDict[@"Location"] addObject: newSection];
+	}
+//	[self.categoryDict[@"location"][1] addObject:foo]
 }
 
 @end

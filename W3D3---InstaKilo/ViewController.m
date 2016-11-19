@@ -10,16 +10,26 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) PhotoManager* manager;
+@property (nonatomic) NSArray *dictValues;
+@property (nonatomic) NSInteger count;
 @end
 
 @implementation ViewController
+
+- (instancetype)init
+{
+	self = [super init];
+	if (self) {
+		_count = 0;
+	}
+	return self;
+}
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
 	//create pictures
 	NSMutableArray *initPics = [NSMutableArray new];
-
 	
 	[initPics addObject:[[PhotoObject alloc] initWithName:@"img0584" andSubject:@"People" andLocation:@"Toronto"]];
 	[initPics addObject:[[PhotoObject alloc] initWithName:@"img0585" andSubject:@"People" andLocation:@"Toronto"]];
@@ -34,10 +44,11 @@
 	
 	self.manager = [PhotoManager new];
 	
-	
 	[self.manager splitBySubject:@"People" withArray:initPics];
 	[self.manager splitBySubject:@"Random" withArray:initPics];
 	[self.manager splitBySubject:@"Face" withArray:initPics];
+	[self.manager splitBySubject:@"Halifax" withArray:initPics];
+	[self.manager splitBySubject:@"Toronto" withArray:initPics];
 
 	
 
@@ -56,11 +67,15 @@
 
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-	return self.manager.photoArray.count;
+	//get key value names here so they dont change order
+	self.dictValues = [self.manager.categoryDict allKeys];
+	//get into the first array inside the dictionary to see the number of sections
+	return [self.manager.categoryDict valueForKey: self.dictValues[self.count++]];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-	NSMutableArray *arrayItem = self.manager.photoArray[section];
+	//get values from the top most array in the dictionary
+	NSMutableArray *arrayItem = [self.manager.categoryDict valueForKey: self.dictValues[section]];
 	return arrayItem.count;
 }
 
@@ -71,28 +86,26 @@
 	return cell;
 }
 
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-//{
-//	UICollectionReusableView *reusableview = nil;
-//	
-//	if (kind == UICollectionElementKindSectionHeader) {
-//		HeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerView" forIndexPath:indexPath];
-//		
-//		//NSMutableArray *arrayItem = self.manager.photoArray[section];
-//		NSString *title = [[NSString alloc]initWithFormat:@"%@", arrayItem[indexPath.section]];
-//		headerView.title.text = title;
-//		
-//		reusableview = headerView;
-//	}
-// 
-//	if (kind == UICollectionElementKindSectionFooter) {
-//		UICollectionReusableView *footerview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView" forIndexPath:indexPath];
-//		
-//		reusableview = footerview;
-//	}
-//	
-//	return reusableview;
-//}
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+	
+	UICollectionReusableView *reusableview = nil;
+	
+	if (kind == UICollectionElementKindSectionHeader) {
+		HeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerCell" forIndexPath:indexPath];
+		
+		NSMutableArray *array = [self.manager.categoryDict valueForKey:@"Subject"];
+		
+		
+		NSMutableArray *arrayItem = self.manager.photoArray[indexPath.section];
+		PhotoObject *photoObject = arrayItem[indexPath.section];
+		NSString *title = [[NSString alloc]initWithFormat:@"%@", photoObject.subject];
+		headerView.title.text = title;
+		
+		reusableview = headerView;
+	}
+	
+	return reusableview;
+}
 
 
 
